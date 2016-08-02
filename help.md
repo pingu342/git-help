@@ -29,6 +29,44 @@ hogeブランチに移動する
 (参考)[http://www.backlog.jp/git-guide/stepup/stepup1_1.html]
 
 
+## 共有ファイルサーバー上にリモートリポジトリを作成してpushする
+
+まずローカルリポジトリを作成する
+
+	mkdir hoge
+	cd hoge
+	git init
+	echo "hoge" > hoge.txt
+	git add hoge.txt
+	git commit -m "initial"
+
+hogeという名前のリモートリポジトリを作成する
+
+	mkdir hoge.git
+	cd hoge.git
+	git init --bare --shared
+
+リモートリポジトリ`hoge.git`をローカルリポジトリにoriginという名前で追加する  
+ローカルリポジトリ側で、
+
+	git remote add origin /path/to/hoge.git
+	git remote
+	git remote show origin
+
+ローカルリポジトリのmasterブランチをリモートリポジトリ`origin`にpushする
+
+	git push origin master
+
+
+## 共有ファイルサーバー上のリモートリポジトリからローカルリポジトリを作成する
+
+cloneする
+
+	git clone /path/to/hoge.git
+
+> Gitサーバー - Localプロトコル[https://git-scm.com/book/ja/v1/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB]
+
+
 ## 作成したブランチをリモートにpushする
 
 新規にhogeブランチを作成して移動する
