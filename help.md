@@ -98,14 +98,15 @@ hogeブランチで作業する
 	git add hoge.txt
 	git commit -m "add hoge.txt"
 
-hogeブランチをリモートにpushする
+hogeブランチをリモートにhogeブランチという名前でpushする
 
 	git push -u origin hoge
 
-> -uをつけることで、hogeブランチをpullすることができるようになる
+> ローカルとは異なるブランチ名を付けることができる  
+> また、-uオプションを付けることで、hogeブランチのpullができるようになる
 
-誰かがhogeブランチにpushしたとする  
-hogeブランチをpullする
+自分以外がリモートのhogeブランチに変更をpushする  
+その変更を取り込むために、hogeブランチをpullする
 
 	git pull
 
@@ -141,12 +142,45 @@ hogeブランチに移動する
 > hoge.txtの変更を、hogeブランチにコミット可能
 
 
-## ブランチを削除する
+## ローカルのブランチを削除する
 
-hogeブランチを削除する
+ローカルのhogeブランチを削除する
 
 	git branch -d hoge
 
+> もしhogeブランチがリモートリポジトリにpushされていた場合、リモートリポジトリ上のhogeブランチは削除されていない  
+
+
+## リモートのブランチを削除する
+
+リモートのhogeブランチを削除する
+
+	git push --delete origin hoge
+
+
+## リモートのブランチをローカルに取得する
+
+クローンする
+
+	git clone file://path/to/remote.git
+
+ブランチのリストを確認する
+
+	git branch --all
+	* master
+	  remotes/origin/HEAD -> origin/master
+	  remotes/origin/hoge
+
+> クローン直後、ローカルにはmasterブランチのみ  
+> リモートにはhogeブランチがある
+
+リモートのhogeブランチを、ローカルのhogeブランチとしてチェックアウトし、hogeブランチに移動する
+
+	git checkout -b hoge origin/hoge
+
+> ローカルのブランチ名には、リモートのブランチ名とは異なる名前を付けても良い  
+> 例えば、リモートのhogeブランチを、ローカルのhoge1ブランチとしてチェックアウトできる  
+> 更にその後に、名前を変えて、ローカルのhoge2ブランチとしてチェックアウトできる
 
 ## ブランチやコミットを渡り歩く
 
