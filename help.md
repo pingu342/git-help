@@ -26,12 +26,12 @@ hogeブランチに移動する
 
 	git checkout -b hoge
 
-(参考)[http://www.backlog.jp/git-guide/stepup/stepup1_1.html]
+[参考](http://www.backlog.jp/git-guide/stepup/stepup1_1.html)
 
 
 ## 共有ファイルサーバー上にリモートリポジトリを作成してpushする
 
-まずローカルリポジトリを作成する
+まずローカル側で、ローカルリポジトリを作成する
 
 	mkdir hoge
 	cd hoge
@@ -40,14 +40,13 @@ hogeブランチに移動する
 	git add hoge.txt
 	git commit -m "initial"
 
-hogeという名前のリモートリポジトリを作成する
+共有ファイルサーバー側で、hogeという名前のリモートリポジトリを作成する
 
 	mkdir hoge.git
 	cd hoge.git
 	git init --bare --shared
 
-リモートリポジトリ`hoge.git`をローカルリポジトリにoriginという名前で追加する  
-ローカルリポジトリ側で、
+ローカル側で、リモートリポジトリ`hoge.git`をローカルリポジトリにoriginという名前で追加する  
 
 	git remote add origin /path/to/hoge.git
 	git remote
@@ -64,7 +63,7 @@ cloneする
 
 	git clone /path/to/hoge.git
 
-> Gitサーバー - Localプロトコル[https://git-scm.com/book/ja/v1/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB]
+> [Gitサーバー - Localプロトコル](https://git-scm.com/book/ja/v1/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB)
 
 
 ## 作成したブランチをリモートにpushする
@@ -84,7 +83,7 @@ hogeブランチを誰かと共有したければ、リモートリポジトリ�
 	git push origin hoge
 
 
-> (参考)[http://blog.basyura.org/entry/20100323/p1]
+> [参考]([http://blog.basyura.org/entry/20100323/p1)
 
 
 ## リモートにpushしたブランチをpullする
@@ -110,7 +109,7 @@ hogeブランチをリモートにhogeブランチという名前でpushする
 
 	git pull
 
-> (参考)[http://rcmdnk.github.io/blog/2014/01/31/computer-git/]
+> [参考](http://rcmdnk.github.io/blog/2014/01/31/computer-git/)
 
 
 ## 新規ブランチの作成時、作業ディレクトリ内に未コミットの変更があったら?
