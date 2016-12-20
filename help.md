@@ -102,7 +102,7 @@ hogeブランチをリモートにhogeブランチという名前でpushする
 	git push -u origin hoge
 
 > ローカルとは異なるブランチ名を付けることができる  
-> また、-uオプションを付けることで、hogeブランチのpullができるようになる
+> また、-uオプションを付けることで、リモートからhogeブランチをpullできるようになる
 
 自分以外がリモートのhogeブランチに変更をpushする  
 その変更を取り込むために、hogeブランチをpullする
@@ -110,6 +110,23 @@ hogeブランチをリモートにhogeブランチという名前でpushする
 	git pull
 
 > [参考](http://rcmdnk.github.io/blog/2014/01/31/computer-git/)
+
+
+## 誰かがリモートにpushしたブランチをpullする
+
+ローカルに新しくブランチを作って、そこにリモートのブランチを持ってくる
+
+	git branch new-branch origin/new-branch
+
+新しいブランチの作成と、リモートからのチェックアウトを同時に行う
+
+	git checkout -b new-branch origin/new-branch
+
+既にローカルにブランチがある場合は、--set-upstream-toでローカルのブランチをリモートのブランチに繋げてからpullする
+
+	git branch --set-upstream-to=origin/new-branch new-branch
+	git branch -vv
+	git pull
 
 
 ## 新規ブランチの作成時、作業ディレクトリ内に未コミットの変更があったら?
