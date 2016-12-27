@@ -114,15 +114,20 @@ hogeブランチをリモートにhogeブランチという名前でpushする
 
 ## 誰かがリモートにpushしたブランチをpullする
 
-ローカルに新しくブランチを作って、そこにリモートのブランチを持ってくる
+ローカルに新しくブランチを作って、そこにリモートのブランチを持ってくる  
+ブランチ名はリモートとローカルで異なっていても良い(ローカルのブランチ名に、リモートのブランチ名とは異なる名前をつけてよい)
 
 	git branch new-branch origin/new-branch
+
+> new-branchのチェックアウトは行われないので、ローカルの作業ディレクトリはnew-branchに移動しない
 
 新しいブランチの作成と、リモートからのチェックアウトを同時に行う
 
 	git checkout -b new-branch origin/new-branch
 
-既にローカルにブランチがある場合は、--set-upstream-toでローカルのブランチをリモートのブランチに繋げてからpullする
+> new-branchのチェックアウトも行われるので、ローカルの作業ディレクトリがnew-branchに移動する
+
+ローカルの既存のブランチに、リモートのブランチをpullするには、pullする前に、--set-upstream-toでローカルのブランチをリモートのブランチに接続する必要がある
 
 	git branch --set-upstream-to=origin/new-branch new-branch
 	git branch -vv
