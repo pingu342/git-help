@@ -114,6 +114,10 @@ hogeブランチをリモートにhogeブランチという名前でpushする
 
 ## 誰かがリモートにpushしたブランチをpullする
 
+リモートに存在するブランチを確認する
+
+	git branch -r
+
 ローカルに新しくブランチを作って、そこにリモートのブランチを持ってくる  
 ブランチ名はリモートとローカルで異なっていても良い(ローカルのブランチ名に、リモートのブランチ名とは異なる名前をつけてよい)
 
@@ -458,6 +462,25 @@ masterブランチに移動する
 > [参考](http://linux.keicode.com/prog/git-resolve-non-fast-forward-push-problem.php)
 
 
+## 競合している変更をリモートからpullする
+
+Aさんが競合する変更をリモートにpushする
+
+リモートの変更履歴を確認する
+
+	git fetch
+	git log origin/master
+
+> `git fetch`はデフォルトでoriginをfetchする
+
+fetchはリモートから変更履歴とタグを取得する
+
+Aさんの変更をマージする
+
+	git merge origin/master
+
 pull = fetch + merge である
 
 > [参考](http://www.backlog.jp/git-guide/stepup/stepup3_2.html)
+
+
