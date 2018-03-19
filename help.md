@@ -484,3 +484,13 @@ pull = fetch + merge である
 > [参考](http://www.backlog.jp/git-guide/stepup/stepup3_2.html)
 
 
+## GitHubでFork/cloneしたリポジトリを本家リポジトリに追従する
+
+	git remote add upstream https://github.com/xxx/yyy.git
+	git remote -v
+	git fetch upstream
+	git merge upstream/master
+	git push origin master
+
+> [参考](https://qiita.com/xtetsuji/items/555a1ef19ed21ee42873)
+
