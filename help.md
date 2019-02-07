@@ -484,3 +484,27 @@ pull = fetch + merge である
 > [参考](http://www.backlog.jp/git-guide/stepup/stepup3_2.html)
 
 
+## コミットのauthorを書き換える
+
+まずgit configを修正する
+
+	git config --local user.name nanashi
+	git config --local user.email nanashi@mail.com
+
+直近のコミットだけなら、
+
+	git commit --amend --reset-author
+
+> [参考](http://sohtaro.com/blog/2017/06/11/git-author-email-replace/)
+
+
+過去のすべてのコミットが対象なら、
+
+	git filter-branch -f --env-filter \
+	"GIT_AUTHOR_NAME='nanashi'; \
+	 GIT_AUTHOR_EMAIL='nanashi@mail.com'; \
+	 GIT_COMMITTER_NAME='nanashi'; \
+	 GIT_COMMITTER_EMAIL='nanashi@mail.com';" \
+	HEAD
+
+> [参考](http://sohtaro.com/blog/2017/06/11/git-author-email-replace/)
