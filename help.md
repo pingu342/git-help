@@ -520,3 +520,23 @@ pull = fetch + merge である
 
 > [参考](https://qiita.com/xtetsuji/items/555a1ef19ed21ee42873)
 
+
+## 複数のコミットを1つのコミットにまとめる
+
+HEADから過去4つのコミットを1つにまとめる
+
+	git rebase -i HEAD~4
+
+> [参考](https://qiita.com/takke/items/3400b55becfd72769214)
+
+
+## masterブランチのHEADを戻す
+
+	git checkout master
+	git checkout -b dev_foobar
+	git branch -D master
+	git checkout <戻したいコミット>
+	git checkout -b master
+
+> [参考](https://uehatsu.info/tech/archives/2015/03/rewind-the-master-on-git.html)
+
